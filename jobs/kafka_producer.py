@@ -1,6 +1,6 @@
 import os
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 import random
 import uuid
 from helpers.utils import produce_to_kafka
@@ -35,6 +35,13 @@ def generate_emergency_vehicle_data(vehicle_type="Ambulance"):
     vehicle_info = random.choice(filtered_vehicle_types)
     os_type = random.choice(["IOS", "ANDROID"])
     v_categ = random.choice(["BLS", "ALS", "ICU"])
+
+    dispatch_time = datetime.now()
+    #Define believable range for arrival time
+    arrival_time_offset = random.uniform(5, 30)  # Random offset between 5 and 15 minutes
+    arrival_time = dispatch_time + timedelta(minutes=arrival_time_offset)
+
+
     vehicle_data = {
         "id": uuid.uuid4(),
         "vehicle_id": f"{v_categ}-{random.randint(1, 20)}",
@@ -45,8 +52,8 @@ def generate_emergency_vehicle_data(vehicle_type="Ambulance"):
             "longitude": random.uniform(-0.118092, -0.128092)
         },
         "patient_id": f"{os_type}-{random.randint(1, 20)}",
-        "dispatch_time": datetime.now().isoformat(),
-        "timestamp": datetime.now().isoformat()
+        "dispatch_time": dispatch_time.isoformat(),
+        "timestamp": arrival_time.isoformat()
     }
     return vehicle_data
 
