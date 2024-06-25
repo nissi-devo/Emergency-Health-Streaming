@@ -3,6 +3,32 @@ from pyspark.sql.functions import from_json, col
 from pyspark.sql.types import StructField, StructType, StringType, IntegerType, TimestampType, BooleanType, DoubleType
 from config import configuration
 
+
+def read_kafka_stream(spark, topic, schema):
+    return (
+        spark.readStream
+        .format('kafka')
+        .option('kafka.bootstrap.servers', 'broker:29092')
+        .option('subscribe', topic)
+        .option('startingOffsets', 'earliest')
+        .option("failOnDataLoss", "false")
+        .load()
+        .selectExpr('CAST(value as STRING)')
+        .select(from_json(col('value'), schema).alias('data'))
+        .select('data.*')
+        .withWatermark('timestamp', '2 minutes')
+    )
+
+
+def writeStream(input: DataFrame, checkpointFolder, output):
+    return (
+        input.writeStream
+        .format('parquet')
+        .option('checkpointLocation', checkpointFolder)
+        .option('path', output)
+        .outputMode('append')
+        .start()
+    )
 def main():
     spark = SparkSession.builder.appName("EmergencyHealthStreaming")\
     .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0,"
@@ -44,33 +70,9 @@ def main():
         StructField("timestamp", TimestampType(), True)
     ])
 
-    def read_kafka_stream(topic, schema):
-        return(
-            spark.readStream
-            .format('kafka')
-            .option('kafka.bootstrap.servers', 'broker:29092')
-            .option('subscribe', topic)
-            .option('startingOffsets', 'earliest')
-            .option("failOnDataLoss", "false")
-            .load()
-            .selectExpr('CAST(value as STRING)')
-            .select(from_json(col('value'), schema).alias('data'))
-            .select('data.*')
-            .withWatermark('timestamp', '2 minutes')
-        )
 
-    def writeStream(input: DataFrame, checkpointFolder, output):
-        return(
-            input.writeStream
-            .format('parquet')
-            .option('checkpointLocation', checkpointFolder)
-            .option('path', output)
-            .outputMode('append')
-            .start()
-        )
-
-    patient_df = read_kafka_stream('patient_data', patientSchema).alias('patient')
-    emergency_df = read_kafka_stream('emergency_vehicle_data', emergencySchema).alias('emergency')
+    patient_df = read_kafka_stream(spark,'patient_data', patientSchema).alias('patient')
+    emergency_df = read_kafka_stream(spark, 'emergency_vehicle_data', emergencySchema).alias('emergency')
 
     query1 = writeStream(patient_df, 's3a://health-streaming-data/checkpoints/patient_data',
                 's3a://health-streaming-data/data/patient_data')
@@ -78,8 +80,6 @@ def main():
                 's3a://health-streaming-data/data/emergency_vehicle_data')
 
     query2.awaitTermination()
-
-
 
 if __name__ == "__main__":
     main()
