@@ -35,7 +35,7 @@ def main():
                                        "com.amazonaws:aws-java-sdk:1.11.469") \
         .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem") \
         .config("spark.hadoop.fs.s3a.aws.credentials.provider",
-                "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider") \
+                "org.apache.hadoop.fs.s3a.InstanceProfileCredentialsProvider") \
         .getOrCreate()
 
     #Adjust the log level
