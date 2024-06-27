@@ -1,5 +1,4 @@
 import os
-import sys
 import time
 from datetime import datetime, timedelta
 import random
@@ -63,6 +62,8 @@ def simulate_data(producer):
         #generate data
         patient_data = generate_patient_data()
         emergency_data = generate_emergency_vehicle_data()
+
+        print("Starting to produce to kafka..")
 
         #send data to kafka stream
         produce_to_kafka(producer, PATIENT_TOPIC, patient_data)
