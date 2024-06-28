@@ -6,12 +6,12 @@ This project implements a real-time data streaming pipeline capable of handling 
 <h2><strong>Architecture</strong></h2>
 The architecture of the pipeline includes the following components:
 
-**Data Ingestion**: Two API endpoints provide health metrics in JSON format.
-**Kafka Streams**: Used for ingesting and streaming real-time data.
-**PySpark**: Structured streaming to process and transform data.
-**Amazon S3**: Storage for processed data in Parquet format.
-**AWS Glue**: Crawlers to detect new Parquet files in S3 and update Glue tables.
-**Docker**: Containerization for easy deployment.
+**Data Ingestion**: Two API endpoints provide health metrics in JSON format.<br>
+**Kafka Streams**: Used for ingesting and streaming real-time data.<br>
+**PySpark**: Structured streaming to process and transform data.<br>
+**Amazon S3**: Storage for processed data in Parquet format.<br>
+**AWS Glue**: Crawlers to detect new Parquet files in S3 and update Glue tables.<br>
+**Docker**: Containerization for easy deployment.<br>
 **AWS EC2**: Deployment environment with a domain pointing to the instance.
 
 <h2><strong>Workflow</strong></h2>
