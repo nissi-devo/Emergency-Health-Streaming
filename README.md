@@ -16,8 +16,10 @@ The architecture of the pipeline includes the following components:
 
 <h2><strong>Workflow</strong></h2>
 
-**1. Data Ingestion:** Health information(such as heart rate, oxygen saturation level) and vehicle data (such as dispatch time, vehicle location etc) are ingested in JSON (mimicing an API endpoint) <br>
-**2. Data Streaming:** Kafka streams consume the data.<br>
+**1. Data Ingestion:** Health Data(such as heart rate, oxygen saturation level) and Vehicle Data (such as dispatch time, vehicle location etc) are ingested in JSON (mimicing an API endpoint) <br>
+**2. Data Streaming:** Kafka streams consume the data.
+![Example Image](images/verify-data-sent-to-kafka-stream.png)
+<br>
 **3. Data Processing:** PySpark processes the ingested data which is transformed and structured for further analytics.<br>
 **4. Data Storage:** Processed data is stored in Amazon S3 as Parquet files<br>
 **5. Data Cataloging**
