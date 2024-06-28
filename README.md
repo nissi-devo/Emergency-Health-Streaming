@@ -40,7 +40,10 @@ Tables in Glue are updated to reflect the new data and can be queried using AWS 
 <h2><strong>Deployment</strong></h2>
 The entire pipeline is containerized using Docker and deployed on an AWS EC2 with an elastic IP pointing to the domain 'health-streaming.com'.<br>
 1. I set up an EC2 instance using the latest Ubuntu version t2.xlarge (or bigger). 
-2. I edited the security group (associated with the EC2 instance inbound rules to allow TCP traffic (all) for ports 80(HTTP), 443(HTTPS), 22(SSH) and 9090(Kafka UI).
+![Example Image](images/ec2-instance-set-up-1.png) 
+![Example Image](images/ec2-instance-set-up-2.png) <br>
+2. I edited the security group (associated with the EC2 instance inbound rules to allow TCP traffic (all) for ports 80(HTTP), 443(HTTPS), 22(SSH) and 9090(Kafka UI).  <br>
+3. 
 
 
 
