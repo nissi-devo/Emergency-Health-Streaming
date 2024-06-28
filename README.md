@@ -41,7 +41,7 @@ Tables in Glue are updated to reflect the new data and can be queried using AWS 
 The entire pipeline, from ingestion until the data is dumped in S3, is containerized using Docker and deployed on an AWS EC2.<br>
 1. I set up an EC2 instance using the latest Ubuntu version t2.xlarge (or bigger). 
 <img src="images/ec2-instance-set-up-2.png" alt="Example Image" style="width:1200px; height:650px;"><br>
-2. I edited the security group (associated with the EC2 instance inbound rules to allow TCP traffic (all) for ports 80(HTTP), 443(HTTPS), 22(SSH) and 9090(Kafka UI).  <br>
+2. I edited the security group (associated with the EC2 instance inbound rules to allow TCP traffic (all) for ports 80(HTTP), 443(HTTPS), 22(SSH) and 9090(Kafka UI). <br>
 3. I allocated an Elastic IP and associated it with the EC2 instance. This is then points to domain 'health-streaming.com'.
 <img src="images/associate-elasticip-with-ec2.png" alt="Example Image" style="width:1200px; height:650px;">
 <img src="images/create-A-record-dns.png" alt="Example Image" style="width:1200px; height:650px;"><br>
