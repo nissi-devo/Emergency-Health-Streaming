@@ -3,6 +3,12 @@
 <h2><strong>Overview</strong></h2>
 This project implements a real-time data streaming pipeline capable of handling data from a system that ingests health metrics such as heart rate and oxygen saturation level from patients' smart watch devices and triggers emergency vehicle dispatch within a certain radius if any health metrics exceed abnormal levels. The data generated mimics real-time APIs that supply this data for analytics.
 
+<h2><strong>Getting Started</strong></h2>
+To get started with this project you need:
+- Intermediate Python Proficiency
+- Docker Desktop 
+- An AWS Account
+
 <h2><strong>Architecture</strong></h2>
 The architecture of the pipeline includes the following components:
 
@@ -30,14 +36,16 @@ Tables in Glue are updated to reflect the new data and can be queried using AWS 
 <img src="images/glue-crawler-main-process.png" alt="Example Image" style="width:1200px; height:650px;">
 <img src="images/glue-crawler-created.png" alt="Example Image" style="width:1200px; height:650px;">
 <img src="images/glue-table-dashboard.png" alt="Example Image" style="width:1200px; height:650px;">
-<h2><strong>Getting Started</strong></h2>
-To get started with this project you need:
-- Intermediate Python Proficiency
-- Docker Desktop 
-- An AWS Account
+
+<h2><strong>Deployment</strong></h2>
+The entire pipeline is containerized using Docker and deployed on an AWS EC2 with an elastic IP pointing to the domain 'health-streaming.com'.<br>
+1. I set up an EC2 instance using the latest Ubuntu version t2.xlarge (or bigger). 
+2. I edited the security group (associated with the EC2 instance inbound rules to allow TCP traffic (all) for ports 80(HTTP), 443(HTTPS), 22(SSH) and 9090(Kafka UI).
 
 
 
 
 
-<h2><strong>Architecture</strong></h2>
+
+
+
