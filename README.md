@@ -46,17 +46,18 @@ The entire pipeline, from ingestion until the data is dumped in S3, is container
 3. I allocated an Elastic IP and associated it with the EC2 instance. This is then points to domain 'health-streaming.com'.
 <img src="images/associate-elasticip-with-ec2.png" alt="Example Image" style="width:1200px; height:650px;">
 <img src="images/create-A-record-dns.png" alt="Example Image" style="width:1200px; height:650px;"><br>
-4.I created a new IAM role with full S3 access and associatyed this with my EC2 instance.
-4: SSH into EC2 instance. Please see [here](URL) for commands. 
+4.I created a new IAM role with full S3 access and associatyed this with my EC2 instance.<br>
+<br>
+5: SSH into EC2 instance. Please see [here](URL) for commands. 
 
 ![Example Image](images/config-ssh.png) <br>
-5. I installed tools and dependencies (including docker, docker-compose, venv, pip) on EC2 machine.<br>
+6. I installed tools and dependencies (including docker, docker-compose, venv, pip) on EC2 machine.<br>
 <br>
-6. I cloned the repository **prod** branch.<br>
+7. I cloned the repository **prod** branch.<br>
 <br>
-7. I activated the virtual environment and spined up all containers.<br>
+8. I activated the virtual environment and spined up all containers.<br>
 <br>
-8. I executed the Kafka producer and Spark consumer jobs as background processes.<br>
+9. I executed the Kafka producer and Spark consumer jobs as background processes.<br>
 <i>Note: the config file shown above must be within the .ssh folder on your local machine<i/> <br>
 ```bash
 ssh [domain-name] #Ssh into EC2 instance
@@ -66,7 +67,7 @@ sudo nohup venv/bin/python3 jobs/main.py &  #Run Python script that produces dat
 sudo nohup bash jobs/submit_spark_job.sh & ##Run Bash script that consumes data to kafka as a background process
 ```
 <br>
-9. Stop these scripts at will.
+10. Stop these scripts at will.
 
 ```bash
 kill <PID>
