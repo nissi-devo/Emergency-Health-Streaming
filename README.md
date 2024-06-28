@@ -22,7 +22,7 @@ The architecture of the pipeline includes the following components:
 <br>
 **3. Data Processing:** PySpark processes the ingested data which is transformed and structured for further analytics.<br>
 **4. Data Storage:** Processed data is stored in Amazon S3 as Parquet files.
-<img src="images/vehicle-data-in-s3.png" alt="Example Image" style="height:auto; max-height:150px;">
+<img src="images/vehicle-data-in-s3.png" alt="Example Image" style="height:150px;">
 ![Example Image](images/vehicle-data-in-s3.png)
 ![Example Image](images/data-sent-to-patient-dir-in-s3.png)
 <br>
