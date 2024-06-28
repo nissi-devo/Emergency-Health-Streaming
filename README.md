@@ -59,9 +59,7 @@ The entire pipeline, from ingestion until the data is dumped in S3, is container
 8. I executed the Kafka producer and Spark consumer jobs as background processes.  
 ```bash
 #!/bin/bash
-
-# This is a sample Bash script
-echo "Hello, World!"
+```
 
 Spark Homepage UI showing all containes are up and the spark consumer is accessible via the domain on port 9090.
 
