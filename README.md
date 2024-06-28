@@ -25,8 +25,11 @@ The architecture of the pipeline includes the following components:
 <img src="images/vehicle-data-in-s3.png" alt="Example Image" style="width:1200px; height:650px;">
 <img src="images/data-sent-to-patient-dir-in-s3.png" alt="Example Image" style="width:1200px; height:650px;">
 <br>
-**5. Data Cataloging**
-
+**5. Data Cataloging:** AWS Glue crawlers detect new Parquet files and update the Glue data catalog.
+Tables in Glue are updated to reflect the new data and can be queried using AWS Athena.
+<img src="images/glue-crawler-main-process.png" alt="Example Image" style="width:1200px; height:650px;">
+<img src="images/glue-crawler-created.png" alt="Example Image" style="width:1200px; height:650px;">
+<img src="images/glue-table-dashboard.png" alt="Example Image" style="width:1200px; height:650px;">
 <h2><strong>Getting Started</strong></h2>
 To get started with this project you need:
 - Intermediate Python Proficiency
