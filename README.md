@@ -58,9 +58,17 @@ The entire pipeline, from ingestion until the data is dumped in S3, is container
 <br>
 8. I executed the Kafka producer and Spark consumer jobs as background processes.  
 ```bash
-#!/bin/bash
+ssh [domain-name] #Ssh into EC2 instance
+docker-compose up -d #Start all containers
+source venv/bin/activate #Activate virtual environment
+sudo nohup venv/bin/python3 jobs/main.py &  #Run Python script that produces data to kafka as a background process
+sudo nohup bash jobs/submit_spark_job.sh & ##Run Bash script that consumes data to kafka as a background process
 ```
-
+<br>
+9. Stop these scripts at will.
+```bash
+kill <PID>
+```
 Spark Homepage UI showing all containes are up and the spark consumer is accessible via the domain on port 9090.
 
 ![Example Image](images/ec2-spark-homepage.png) <br>
