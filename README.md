@@ -24,7 +24,7 @@ The architecture of the pipeline includes the following components:
 
 **1. Data Ingestion:** Health Data(such as heart rate, oxygen saturation level) and Vehicle Data (such as dispatch time, vehicle location etc) are ingested in JSON (mimicing an API endpoint) <br>
 **2. Data Streaming:** Kafka streams consume the data.
-![Example Image](images/verify-data-sent-to-kafka-stream.png)
+c
 <br>
 **3. Data Processing:** PySpark processes the ingested data which is transformed and structured for further analytics.<br>
 **4. Data Storage:** Processed data is stored in Amazon S3 as Parquet files.
@@ -40,6 +40,7 @@ Tables in Glue are updated to reflect the new data and can be queried using AWS 
 <h2><strong>Deployment</strong></h2>
 The entire pipeline is containerized using Docker and deployed on an AWS EC2 with an elastic IP pointing to the domain 'health-streaming.com'.<br>
 1. I set up an EC2 instance using the latest Ubuntu version t2.xlarge (or bigger). 
+
 ![Example Image](images/ec2-instance-set-up-1.png) 
 ![Example Image](images/ec2-instance-set-up-2.png) <br>
 2. I edited the security group (associated with the EC2 instance inbound rules to allow TCP traffic (all) for ports 80(HTTP), 443(HTTPS), 22(SSH) and 9090(Kafka UI).  <br>
@@ -48,7 +49,7 @@ The entire pipeline is containerized using Docker and deployed on an AWS EC2 wit
 
 
 
-
+![Example Image](images/verify-data-sent-to-kafka-stream.png)
 
 
 
