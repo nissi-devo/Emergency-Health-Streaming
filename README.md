@@ -4,7 +4,7 @@
 <h3>This project implements a real-time data streaming pipeline capable of handling data from a system that ingests health metrics such as heart rate and oxygen saturation level from patients' smart watch devices and triggers emergency vehicle dispatch within a certain radius if any health metrics exceed abnormal levels. The data generated mimics real-time APIs that supply this data for analytics.</h3>
 
 <h2><strong>Architecture</strong></h2>
-<h3></h3>The architecture of the pipeline includes the following components:
+<h3>The architecture of the pipeline includes the following components:
 
 **Data Ingestion**: Two API endpoints provide health metrics in JSON format.
 **Kafka Streams**: Used for ingesting and streaming real-time data.
