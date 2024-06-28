@@ -38,7 +38,7 @@ Tables in Glue are updated to reflect the new data and can be queried using AWS 
 <img src="images/glue-table-dashboard.png" alt="Example Image" style="width:1200px; height:650px;">
 
 <h2><strong>Deployment</strong></h2>
-The entire pipeline (from ingestion until the data is dumped in S3) is containerized using Docker and deployed on an AWS EC2.<br>
+The entire pipeline, from ingestion until the data is dumped in S3, is containerized using Docker and deployed on an AWS EC2.<br>
 1. I set up an EC2 instance using the latest Ubuntu version t2.xlarge (or bigger). 
 <img src="images/ec2-instance-set-up-2.png" alt="Example Image" style="width:1200px; height:650px;"><br>
 2. I edited the security group (associated with the EC2 instance inbound rules to allow TCP traffic (all) for ports 80(HTTP), 443(HTTPS), 22(SSH) and 9090(Kafka UI).  <br>
@@ -47,7 +47,7 @@ The entire pipeline (from ingestion until the data is dumped in S3) is container
 <img src="images/create-A-record-dns.png" alt="Example Image" style="width:1200px; height:650px;"><br>
 4: SSH into EC2 instance. Please see [here](URL) for commands. 
 
-![Example Image](images/create-config-file-ssh.png)
+![Example Image](images/config-ssh.png) <br>
 5. Install tools and dependencies on EC2 machine.
 6. Clone repository **prod** branch.
 
