@@ -21,7 +21,10 @@ The architecture of the pipeline includes the following components:
 ![Example Image](images/verify-data-sent-to-kafka-stream.png)
 <br>
 **3. Data Processing:** PySpark processes the ingested data which is transformed and structured for further analytics.<br>
-**4. Data Storage:** Processed data is stored in Amazon S3 as Parquet files<br>
+**4. Data Storage:** Processed data is stored in Amazon S3 as Parquet files.
+![Example Image](images/vehicle-data-in-s3.png)
+![Example Image](images/data-sent-to-patient-dir-in-s3.png)
+<br>
 **5. Data Cataloging**
 
 <h2><strong>Getting Started</strong></h2>
