@@ -56,9 +56,14 @@ The entire pipeline, from ingestion until the data is dumped in S3, is container
 <br>
 7. I activated the virtual environment and spined up all containers.<br>
 <br>
-8. I executed the Kafka producer and Spark consumer jobs as background processes. See shell commands [here](URL). 
+8. I executed the Kafka producer and Spark consumer jobs as background processes.  
+```bash
+#!/bin/bash
 
-Spark Homepage UI showing all containes are up and our spark consumer is accessible via the domain.
+# This is a sample Bash script
+echo "Hello, World!"
+
+Spark Homepage UI showing all containes are up and the spark consumer is accessible via the domain on port 9090.
 
 ![Example Image](images/ec2-spark-homepage.png) <br>
 
