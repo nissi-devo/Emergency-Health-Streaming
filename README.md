@@ -15,7 +15,7 @@ The architecture of the pipeline includes the following components:
 **AWS EC2**: Deployment environment with a domain pointing to the instance.
 
 <h2><strong>Workflow</strong></h2>
-**1. Data Ingestion**
+1.**Data Ingestion**
 
 
 
