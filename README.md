@@ -41,17 +41,26 @@ Tables in Glue are updated to reflect the new data and can be queried using AWS 
 The entire pipeline, from ingestion until the data is dumped in S3, is containerized using Docker and deployed on an AWS EC2.<br>
 1. I set up an EC2 instance using the latest Ubuntu version t2.xlarge (or bigger). 
 <img src="images/ec2-instance-set-up-2.png" alt="Example Image" style="width:1200px; height:650px;"><br>
-2. I edited the security group (associated with the EC2 instance inbound rules to allow TCP traffic (all) for ports 80(HTTP), 443(HTTPS), 22(SSH) and 9090(Kafka UI). <br>
+2. I edited the security group (associated with the EC2 instance inbound rules to allow TCP traffic (all) for ports 80(HTTP), 443(HTTPS), 22(SSH) and 9090(Spark UI). <br>
+<br>
 3. I allocated an Elastic IP and associated it with the EC2 instance. This is then points to domain 'health-streaming.com'.
 <img src="images/associate-elasticip-with-ec2.png" alt="Example Image" style="width:1200px; height:650px;">
 <img src="images/create-A-record-dns.png" alt="Example Image" style="width:1200px; height:650px;"><br>
+4.I created a new IAM role with full S3 access and associatyed this with my EC2 instance.
 4: SSH into EC2 instance. Please see [here](URL) for commands. 
 
 ![Example Image](images/config-ssh.png) <br>
-5. Install tools and dependencies on EC2 machine.
-6. Clone repository **prod** branch.
+5. I installed tools and dependencies (including docker, docker-compose, venv, pip) on EC2 machine.<br>
+<br>
+6. I cloned the repository **prod** branch.<br>
+<br>
+7. I activated the virtual environment and spined up all containers.<br>
+<br>
+8. I executed the Kafka producer and Spark consumer jobs as background processes. See shell commands [here](URL). 
 
+Spark Homepage UI showing all containes are up and our spark consumer is accessible via the domain.
 
+![Example Image](images/ec2-spark-homepage.png) <br>
 
 
 
