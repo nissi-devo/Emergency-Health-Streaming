@@ -13,7 +13,7 @@ To get started with this project you need:
 <h2><strong>Architecture</strong></h2>
 The architecture of the pipeline includes the following components:
 
-**Data Ingestion**: Two API endpoints provide health metrics in JSON format.<br>
+**Data Ingestion**: Two functions generate data in JSON format.<br>
 **Kafka Streams**: Used for ingesting and streaming real-time data.<br>
 **PySpark**: Structured streaming to process and transform data.<br>
 **Amazon S3**: Storage for processed data in Parquet format.<br>
