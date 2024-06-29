@@ -11,6 +11,10 @@ To get started with this project you need:
 - An AWS Account
 
 <h2><strong>Architecture</strong></h2>
+
+![Example Image](images/architecture.png)
+<br>
+<br>
 The architecture of the pipeline includes the following components:
 
 **Data Ingestion**: Two functions generate data in JSON format.<br>
