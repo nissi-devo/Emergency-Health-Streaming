@@ -12,7 +12,7 @@ To get started with this project you need to have Python and Docker Desktop inst
 ![Example Image](images/architecture.png)
 <br>
 <br>
-The architecture of the pipeline includes the following components:
+The pipeline consists of the following components:
 
 **Data Ingestion**: Two functions generate data in JSON format.<br>
 **Kafka Streams**: Used for ingesting and streaming real-time data.<br>
