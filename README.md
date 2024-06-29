@@ -48,7 +48,7 @@ The entire pipeline, from ingestion until the data is dumped in S3, is container
 <img src="images/create-A-record-dns.png" alt="Example Image" style="width:1200px; height:650px;"><br>
 4.I created a new IAM role with full S3 access and associatyed this with my EC2 instance.<br>
 <br>
-5: SSH into EC2 instance. Please see [here](URL) for commands. 
+5: SSH into EC2 instance. Please see [here](deployment-instructions.txt) for commands. 
 
 ![Example Image](images/config-ssh.png) <br>
 6. I installed tools and dependencies (including docker, docker-compose, venv, pip) on EC2 machine.<br>
