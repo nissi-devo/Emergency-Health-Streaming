@@ -66,8 +66,8 @@ The entire pipeline, from ingestion until the data is dumped in S3, is container
 ssh [domain-name] #Ssh into EC2 instance
 docker-compose up -d #Start all containers
 source venv/bin/activate #Activate virtual environment
-sudo nohup venv/bin/python3 jobs/main.py &  #Run Python script that produces data to kafka as a background process
-sudo nohup bash jobs/submit_spark_job.sh & ##Run Bash script that consumes data to kafka as a background process
+sudo nohup venv/bin/python3 jobs/main.py &  #Run Python script that produces data to Kafka as a background process
+sudo nohup bash jobs/submit_spark_job.sh & ##Run Bash script that consumes data using Spark as a background process
 ```
 <br>
 10. Stop these scripts at will.
