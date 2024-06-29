@@ -78,9 +78,12 @@ Spark Homepage UI showing all containes are up and the spark consumer is accessi
 
 ![Example Image](images/ec2-spark-homepage.png) <br>
 
-You can query these strucutred tables in Athena.
+You can query these structured tables in Athena.
 
 ![Example Image](images/athena-query.png) 
 
-
+<h2><strong>Further Work</strong></h2>
+This project can be extended in various interesting ways. 
+- Data from additional sources (possibly structured data regarding demographics of patients, stored in a relational database) can be merged into the pipeline. A datawarehouse, designed to fit various business use cases, can be designed and the data can be further transformed and loaded into it using a batch pipeline.
+- The data can be leveraged for various use cases pertaining to predictive analytics. 
 
