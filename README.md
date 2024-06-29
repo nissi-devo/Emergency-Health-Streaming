@@ -59,7 +59,7 @@ The entire pipeline, from ingestion until the data is dumped in S3, is container
 8. I activated the virtual environment and spined up all containers.<br>
 <br>
 9. I executed the Kafka producer and Spark consumer jobs as background processes.<br>
-<i>Note: the config file shown above must be within the .ssh folder on your local machine<i/> <br>
+<i>Note: the config file shown above must be within the .ssh folder on your local machine</i> <br>
 ```bash
 ssh [domain-name] #Ssh into EC2 instance
 docker-compose up -d #Start all containers
@@ -78,7 +78,9 @@ Spark Homepage UI showing all containes are up and the spark consumer is accessi
 
 ![Example Image](images/ec2-spark-homepage.png) <br>
 
+You can query these strucutred tables in Athena.
 
+![Example Image](images/athena-query.png) 
 
 
 
