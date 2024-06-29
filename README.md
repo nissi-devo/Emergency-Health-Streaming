@@ -19,7 +19,7 @@ The architecture of the pipeline includes the following components:
 **Amazon S3**: Storage for processed data in Parquet format.<br>
 **AWS Glue**: Crawlers to detect new Parquet files in S3 and update Glue tables.<br>
 **Docker**: Containerization for easy deployment.<br>
-**AWS EC2**: Deployment environment with a domain pointing to the instance.
+**AWS EC2**: Deployment environment pointing to a domain name.
 
 <h2><strong>Workflow</strong></h2>
 
