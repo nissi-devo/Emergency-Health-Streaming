@@ -1,7 +1,8 @@
 <h1><strong>Real-Time Health Data Streaming Pipeline with Kafka and Spark</strong></h1>
 
 <h2><strong>Overview</strong></h2>
-This project implements a real-time data streaming pipeline designed to analyze health metrics such as heart rate and oxygen saturation levels. The data simulates outputs from an existing system that triggers emergency vehicle dispatches within a certain radius whenever any metric exceeds a given threshold. This pipeline generates data that mimics real-time APIs, providing a reliable way to discover valuable insights.
+This project implements a real-time data streaming pipeline designed to analyze emergency rersponses to health metrics such as heart rate and oxygen saturation levels that exceed given threshold . The data simulates outputs from an existing system that triggers emergency vehicle dispatches within a certain radius of a patient's location. This pipeline generates data that mimics real-time APIs, providing a reliable way to discover valuable insights. <br>
+In this project, I avoid delving into the details of how the system that generates this data can be designed. Instead, I focus on how the outputted real-time data can be processed and harnessed for analytics."
 
 <h2><strong>Getting Started</strong></h2>
 To get started with this project you need:
