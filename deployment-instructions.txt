@@ -1,0 +1,34 @@
+Please note that some instructions might only apply to users on a macOS.
+
+1. touch .ssh #Create a .ssh folder in your root user directory
+2. #Move .pem file downloaded while creating EC2 instance into .ssh folder
+4. cd .ssh/ #Move into .ssh folder
+5. touch config #Create config file as seen in image(config-ssh.png) within .ssh folder.
+6. - Copy and paste the following into the config file (remember to put in your own domain name and .pem file name)
+
+Host domainname.com
+ Hostname (elastic ip created earlier)
+ IdentityFile ~/.ssh/health-streaming-server-key.pem
+ User ubuntu
+
+ 7. ssh domainname.com #ssh into EC2 instance
+ 8. #Set up docker on EC2 LINUX Machine (see https://docs.docker.com/engine/install/ubuntu/) Follow steps 1,2 and 3 in this documentation.
+ 9. #We want to be able to run docker without sudo. Create a docker group and add authenticated users to it (see https://docs.docker.com/engine/install/linux-postinstall/)
+ Follow steps 1,2,3 and 4 in this documentation
+ 10.sudo systemctl enable docker.service
+ sudo systemctl enable containerd.service  #Configure docker to start on boot with systemmd
+ 11. - sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+- sudo chmod +x /usr/local/bin/docker-compose #Install docker compose and ensure it has the necessary permissions
+12. sudo apt-get install python3.7 #Install Python
+13. - sudo apt-get install python3-pip -y #Install pip
+- sudo apt install python3.12-venv #Install venv
+- python3 -m venv venv #Create a virtual environment so we can run the kafka producer python script
+- source venv/bin/activate #Activate virtual environment
+- pip install -r requirements.txt #Install all necessary dependencies from requirements.txt file
+14. docker-compose up -d #Start up containers in detached mode
+15. sudo nohup venv/bin/python3 jobs/main.py & #Run python job that produces to Kafka stream. It runs as a background process even after your terminal session is terminated.
+16. sudo nohup bash jobs/submit_spark_job.sh & #Run bash script that consumes data with Spark and sends it into S3.
+17. #Check that data is coming through to your S3 bucket.
+
+
+
