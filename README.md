@@ -2,13 +2,10 @@
 
 <h2><strong>Overview</strong></h2>
 This project implements a real-time data streaming pipeline designed to analyze emergency rersponses to health metrics such as heart rate and oxygen saturation levels that exceed given threshold . The data simulates outputs from an existing system that triggers emergency vehicle dispatches within a certain radius of a patient's location. This pipeline generates data that mimics real-time APIs, providing a reliable way to discover valuable insights. <br>
-In this project, I avoid delving into the details of how the system that generates this data can be designed. Instead, I focus on how the outputted real-time data can be processed and harnessed for analytics."
+In this project, I avoid delving into the details of how the system that generates this data can be designed. Instead, I focus on how the outputted real-time data can be processed and harnessed for analytics.
 
 <h2><strong>Getting Started</strong></h2>
-To get started with this project you need:
-- Intermediate Python Proficiency
-- Docker Desktop 
-- An AWS Account
+To get started with this project you need to have Python and Docker Desktop installed on your local machine. You also need an AWS account.<br>
 
 <h2><strong>Architecture</strong></h2>
 
