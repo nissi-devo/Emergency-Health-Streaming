@@ -4,7 +4,7 @@ Please note that some instructions might only apply to users on a macOS.
 2. #Move .pem file downloaded while creating EC2 instance into .ssh folder
 4. cd .ssh/ #Move into .ssh folder
 5. touch config #Create config file as seen in image(config-ssh.png) within .ssh folder.
-6. - Copy and paste the following into the config file (remember to put in your own domain name and .pem file name)
+6. - Copy and paste the following into the config file (remember to put in your own domain name, elastic ip and .pem file name)
 
 Host domainname.com
  Hostname (elastic ip created earlier)
