@@ -87,5 +87,5 @@ You can query these structured tables in Athena.
 <h2><strong>Further Work</strong></h2>
 This project can be extended in various interesting ways. 
 - Data from additional sources (possibly structured data regarding demographics of patients, stored in a relational database) can be merged into the pipeline. A datawarehouse, designed to fit various business use cases, can be designed and the data can be further transformed and loaded into it using a batch pipeline.
-- The data can be leveraged for various use cases pertaining to predictive analytics. 
+- The data can also be leveraged for various use cases pertaining to predictive analytics. 
 
