@@ -5,9 +5,11 @@ import random
 import uuid
 from helpers.utils import produce_to_kafka
 
+#Specify two topics for kafka stream
 PATIENT_TOPIC = os.getenv('PATIENT_TOPIC', 'patient_data')
 EMERGENCY_VEHICLE_TOPIC = os.getenv('EMERGENCY_TOPIC', 'emergency_vehicle_data')
 def generate_patient_data():
+    #Generate random data indicating patient vital signs within believable ranges
     os_type = random.choice(["IOS", "ANDROID"])
     patient_data = {
         "id": uuid.uuid4(),
@@ -25,11 +27,13 @@ def generate_patient_data():
     return patient_data
 
 def generate_emergency_vehicle_data(vehicle_type="Ambulance"):
+    #Simulate vehicle categories
     vehicle_types = [
         {"type": "Ambulance", "capacity": "Basic Life Support"},
         {"type": "Ambulance", "capacity": "Advanced Life Support"},
         {"type": "Ambulance", "capacity": "Intensive Care Unit"}
     ]
+    #Filter for ambulances
     filtered_vehicle_types = [v for v in vehicle_types if v["type"] == vehicle_type]
 
     vehicle_info = random.choice(filtered_vehicle_types)
@@ -41,7 +45,7 @@ def generate_emergency_vehicle_data(vehicle_type="Ambulance"):
     arrival_time_offset = random.uniform(5, 30)  # Random offset between 5 and 15 minutes
     arrival_time = dispatch_time + timedelta(minutes=arrival_time_offset)
 
-
+    # Generate random emergency vehicle data within believable ranges
     vehicle_data = {
         "id": uuid.uuid4(),
         "vehicle_id": f"{v_categ}-{random.randint(1, 20)}",
@@ -69,4 +73,4 @@ def simulate_data(producer):
         produce_to_kafka(producer, PATIENT_TOPIC, patient_data)
         produce_to_kafka(producer, EMERGENCY_VEHICLE_TOPIC, emergency_data)
 
-        time.sleep(1)  # Simulate real-time data by pausing for 1 second
+        time.sleep(1)  # Simulate real-time data with 1 second intervals
