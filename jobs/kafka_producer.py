@@ -1,9 +1,12 @@
 import os
+import sys
 import time
 from datetime import datetime, timedelta
 import random
 import uuid
-from helpers.utils import produce_to_kafka
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from jobs.helpers.utils import produce_to_kafka
 
 #Specify two topics for kafka stream
 PATIENT_TOPIC = os.getenv('PATIENT_TOPIC', 'patient_data')
